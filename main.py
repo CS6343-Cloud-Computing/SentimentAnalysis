@@ -60,12 +60,12 @@ def produce_sentiment(topic, key, value, headers):
 
 
 for msg in consumer:
-	print(msg.headers)
 	steps = msg.headers[0][1].decode("utf-8").split("<-->")
 	pointer = 1
 	# int(msg.headers[1][1].decode("utf-8"))
 	temp_tweet = clean_tweet(str(msg))
 	str_tweet = ' '.join(str(t) for t in temp_tweet)
+	print(str_tweet)
 	val = sentiment_analyser(str_tweet)
 	print(val)
 	outtopic =  "output" if pointer + 1 >= len(steps) else steps[pointer+1]
