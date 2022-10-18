@@ -66,7 +66,7 @@ for msg in consumer:
 	temp_tweet = clean_tweet(str(msg))
 	str_tweet = ' '.join(str(t) for t in temp_tweet)
 	print(str_tweet)
-	val = sentiment_analyser(str_tweet)
+	val = sentiment_analyser(msg)
 	print(val)
 	outtopic =  "output" if pointer + 1 >= len(steps) else steps[pointer+1]
 	produce_sentiment(outtopic, msg.key, str(val), [('flow', "<-->".join(steps).encode()), ('pointer', str(pointer+1).encode())])
