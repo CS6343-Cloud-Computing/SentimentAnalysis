@@ -1,10 +1,10 @@
 SentimentAnalyzer
 
 1.) Build the image
-    docker image build -t sentimanalyzer .
+    sudo docker image build -t sentimentanalyzer .
     
 2.) Run the Container
-    docker run --network netflow --env KafkaServer=kafkaserv:9092 --name=sentimentanalyzercontainer sentimentanalyzer
+    sudo docker run --network=host --env KafkaServer=192.168.1.82:9092 --env ContainerName=second_step --name=sc sentimentanalyzer
     
 
 References:
